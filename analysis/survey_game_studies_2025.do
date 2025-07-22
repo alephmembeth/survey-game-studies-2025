@@ -10,7 +10,7 @@ set scheme sj
 ********************************************************************************
 *** WISSENSCHAFTLICHER HINTERGRUND                                           ***
 ********************************************************************************
-use "data.dta", clear
+use "data_game_studies_num.dta", clear
 
 
 /* Sind Sie Mitglied im AKGWDS? */
@@ -98,9 +98,35 @@ tab whbefristung
 
 
 ********************************************************************************
+*** GAME STUDIES                                                             ***
+********************************************************************************
+use "data_game_studies_num.dta", clear
+
+
+/* In welchem Kontext haben Sie diese methodischen Ansätze erlernt? */
+
+gen gserlerntneu = .
+   replace gserlerntneu = 1 if gserlernt1     == "Y"
+   replace gserlerntneu = 2 if gserlernt2     == "Y"
+   replace gserlerntneu = 3 if gserlernt3     == "Y"
+   replace gserlerntneu = 4 if gserlernt4     == "Y"
+   replace gserlerntneu = 5 if gserlerntother == "Y"
+
+label define gserlerntneu_lb ///
+   1 "Bachelorstudium" ///
+   2 "Masterstudium" ///
+   3 "Promotionsstudium" ///
+   4 "Selbststudium" ///
+   5 "Anderes"
+   label values gserlerntneu gserlerntneu_lb
+
+tab gserlerntneu
+
+
+********************************************************************************
 *** SELBSTEINSCHAETZUNG                                                      ***
 ********************************************************************************
-use "data.dta", clear
+use "data_game_studies_num.dta", clear
 
 
 /* Wie schätzen Sie Ihr eigenes methodisches Vorgehen in den Game Studies ein? */
@@ -150,7 +176,7 @@ tab segebraeuchlich
 ********************************************************************************
 *** ALTER UND GESCHLECHT                                                     ***
 ********************************************************************************
-use "data.dta", clear
+use "data_game_studies_num.dta", clear
 
 
 /* Bitte geben Sie an, in welcher Altersgruppe Sie sich befinden. */
