@@ -292,4 +292,56 @@ label define agalter_lb ///
 tab agalter
 
 
+********************************************************************************
+*** BEREICHE                                                                 ***
+********************************************************************************
+use "data_game_studies_area.dta", clear
+
+
+/* Welche akademischen Abschlüsse haben Sie bisher erworben? */
+/* Freitextfeld */
+label define bereich_lb ///
+    1 "Philosophie, Ethik, Religion" ///
+    2 "Geschichte, Archäologie" ///
+    3 "Soziologie" ///
+    4 "Kulturwissenschaften" ///
+    5 "Sprach- und Literaturwiss." ///
+    6 "Medien- und Kommunikationswiss." ///
+    7 "Wirtschaftswissenschaften" ///
+    8 "Psychologie" ///
+    9 "Kunstwissenschaften" ///
+   10 "Digital Humanities" ///
+   11 "Erziehungswissenschaften" ///
+   12 "Architektur" ///
+   13 "Politikwissenschaften" ///
+   14 "Sonstige Religion, Religionswiss." ///
+   15 "Mathematik" ///
+   16 "Theologie" ///
+   17 "Informatik" ///
+   18 "Gesundheitswissenschaften"
+   label values bereich bereich_lb
+
+preserve
+   reshape long station, i(bereich) j(stationneu)
+
+   label define stationneu_lb ///
+      1 "Zur Zeit im Studium" ///
+      2 "Bachelor (oder vergleichbar)" ///
+      3 "Master (oder vergleichbar)" ///
+      4 "Promotion" ///
+      5 "Habilitation"
+      label values stationneu stationneu_lb
+
+   graph bar (sum) station, asyvars ///
+      over(stationneu) ///
+      over(bereich, label(angle(45))) ///
+      bargap(10) ///
+      ytitle("Anzahl") ///
+      title(Studienbereiche) ///
+      legend(pos(6) cols(3)) ///
+      name(bereiche, replace)
+   graph export bereiche.pdf, replace
+restore
+
+
 exit
