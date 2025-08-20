@@ -118,6 +118,7 @@ preserve
 
    graph box whprozent, over(whbereich) ///
       title("Aufteilung der Aufgaben") ///
+      ytitle("Prozent") ///
       ylabel(0(20)100) ///
       graphregion(color(white)) ///
       name(aufteilung, replace)
