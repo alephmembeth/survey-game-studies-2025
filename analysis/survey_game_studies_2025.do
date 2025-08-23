@@ -1,7 +1,7 @@
 ********************************************************************************
 *** HEADER                                                                   ***
 ********************************************************************************
-version 14.2
+version 15.1
 
 set more off, permanently
 set scheme white_hue /* ssc install schemepack, replace */
@@ -342,6 +342,58 @@ preserve
       name(bereiche, replace)
    graph export bereiche.pdf, replace
 restore
+
+
+********************************************************************************
+*** GENDER                                                                   ***
+********************************************************************************
+use "data_game_studies_gender.dta", clear
+
+
+/* Bitte geben Sie Ihr Geschlecht an. */
+/* Freitextfeld */
+label define gender_lb ///
+   1 "Männlich" ///
+   2 "Weiblich" ///
+   3 "Nichtbinär" ///
+   4 "Anderes" ///
+   5 "Keine Antwort"
+   label values gender gender_lb
+
+graph pie anzahl, over(gender) missing ///
+   pie(_all, explode) ///
+   pie(5, color("150 150 150")) ///
+   plabel(_all sum, size(*1.5)) ///
+   title(Gender) ///
+   name(gender, replace)
+graph export gender.pdf, replace
+
+
+********************************************************************************
+*** PUBLIKATIONSSPRACHE                                                      ***
+********************************************************************************
+use "data_game_studies_language.dta", clear
+
+
+/* In welcher Sprache oder welchen Sprachen schreiben Sie Ihre Forschung in den Game Studies primär? */
+/* Freitextfeld */
+label define sprache_lb ///
+   1 "Deutsch" ///
+   2 "Deutsch > Englisch" ///
+   3 "Deutsch = Englisch" ///
+   4 "Deutsch < Englisch" ///
+   5 "Englisch" ///
+   6 "Englisch, Deutsch, Französisch" ///
+   7 "Keine Antwort"
+   label values sprache sprache_lb
+
+graph pie anzahl, over(sprache) missing ///
+   pie(_all, explode) ///
+   pie(7, color("150 150 150")) ///
+   plabel(_all sum, size(*1.5)) ///
+   title(Publikationssprachen) ///
+   name(sprache, replace)
+graph export sprache.pdf, replace
 
 
 exit
