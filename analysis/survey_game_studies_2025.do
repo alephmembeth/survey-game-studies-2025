@@ -78,7 +78,7 @@ label define whrolleneu_lb ///
 
 tab whrolleneu
 
-graph pie, over(whrolle) missing ///
+graph pie, over(whrolleneu) missing ///
    pie(_all, explode) ///
    plabel(_all sum, size(*1.5)) ///
    title(Rolle) ///
