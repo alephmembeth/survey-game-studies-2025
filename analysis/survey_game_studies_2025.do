@@ -291,6 +291,15 @@ label define agalter_lb ///
 
 tab agalter
 
+graph pie, over(agalter) missing ///
+   pie(_all, explode) ///
+   pie(7, color("150 150 150")) ///
+   plabel(_all sum, size(*1.5)) ///
+   title(Alter) ///
+   legend(order(1 "15–24" 2 "25–34" 3 "35–44" 4 "45–54" 5 "55–64" 6 "65–74" 7 "Keine Antwort")) ///
+   name(alter, replace)
+graph export alter.pdf, replace
+
 
 ********************************************************************************
 *** BEREICHE                                                                 ***
