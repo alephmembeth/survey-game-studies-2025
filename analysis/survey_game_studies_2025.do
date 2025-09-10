@@ -80,9 +80,10 @@ tab whrolleneu
 
 graph pie, over(whrolleneu) missing ///
    pie(_all, explode) ///
+   pie(8, color("150 150 150")) ///
    plabel(_all sum, size(*1.5)) ///
    title(Rolle) ///
-   legend(order(1 "Student:in" 2 "Promovierende:r" 3 "Lehrbeauftragte:r/Dozent:in" 4 "Wissenschaftliche:r Mitarbeiter:in" 5 "Juniorprofessor:in" 6 "Professor:in" 7 "Externe:r Forscher:in" 8 "Anderes")) ///
+   legend(order(1 "Student:in" 2 "Promovierende:r" 3 "Lehrbeauftragte:r/Dozent:in" 4 "Wissenschaftliche:r Mitarbeiter:in" 5 "Professor:in" 6 "Externe:r Forscher:in" 7 "Anderes" 8 "Keine Antwort")) ///
    name(rolle, replace)
 graph export rolle.pdf, replace
 
