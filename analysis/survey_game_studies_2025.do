@@ -1,7 +1,7 @@
 ********************************************************************************
 *** HEADER                                                                   ***
 ********************************************************************************
-version 15.1
+version 19.5
 
 set more off, permanently
 set scheme white_hue /* ssc install schemepack, replace */
@@ -25,7 +25,7 @@ graph pie, over(whakgwds) missing ///
    pie(3, color("150 150 150")) ///
    plabel(_all sum, size(*1.5)) ///
    title(AKGWDS) ///
-   legend(order(2 "Ja" 1 "Nein" 3 "Keine Antwort")) ///
+   legend(order(1 "Nein" 2 "Ja" 3 "Keine Antwort")) ///
    name(akgwds, replace)
 graph export akgwds.pdf, replace
 
@@ -54,7 +54,7 @@ graph hbar (sum) whkontexterlernt1neu ///
            (sum) whkontexterlerntotherneu, ///
            blabel(total) ///
            title(Kontext) ///
-           legend(order(1 "Bachelorstudium" 2 "Masterstudium" 3 "Promotionsstudium" 4 "Selbststudium" 5 "Anderes")) ///
+           legend(order(1 "Bachelorstudium" 2 "Masterstudium" 3 "Promotionsstudium" 4 "Selbststudium" 5 "Sonstiges")) ///
            name(whkontext, replace)
 graph export whkontext.pdf, replace
 
@@ -77,6 +77,11 @@ label define whrolleneu_lb ///
    label values whrolleneu whrolleneu_lb
 
 tab whrolleneu
+
+tab whrolleneu severtraut, chi
+tab whrolleneu setradition, chi
+tab whrolleneu seetabliert, chi
+tab whrolleneu segebraeuchlich, chi
 
 graph pie, over(whrolleneu) missing ///
    pie(_all, explode) ///
@@ -102,7 +107,7 @@ graph pie, over(whanstellung) missing ///
    pie(3, color("150 150 150")) ///
    plabel(_all sum, size(*1.5)) ///
    title(Anstellung) ///
-   legend(order(2 "Ja" 1 "Nein" 3 "Keine Antwort")) ///
+   legend(order(1 "Nein" 2 "Ja" 3 "Keine Antwort")) ///
    name(anstellung, replace)
 graph export anstellung.pdf, replace
 
@@ -125,6 +130,10 @@ preserve
       name(aufteilung, replace)
    graph export aufteilung.pdf, replace
 restore
+
+sum whprozent1, detail
+sum whprozent2, detail
+sum whprozent3, detail
 
 
 /* Sind Sie derzeit befristet oder unbefristet angestellt? */
@@ -170,6 +179,13 @@ gen gserlernt4neu = .
 gen gserlerntotherneu = .
    replace gserlerntotherneu = 1 if gserlerntother == "Y"
 
+gen kontext1 = .
+   replace kontext1 = 1 if gserlernt1neu == 1
+   replace kontext1 = 2 if gserlernt2neu == 1
+   replace kontext1 = 3 if gserlernt3neu == 1
+   replace kontext1 = 4 if gserlernt4neu == 1
+   replace kontext1 = 5 if gserlerntotherneu == 1
+   
 graph hbar (sum) gserlernt1neu ///
            (sum) gserlernt2neu ///
            (sum) gserlernt3neu ///
@@ -177,9 +193,37 @@ graph hbar (sum) gserlernt1neu ///
            (sum) gserlerntotherneu, ///
            blabel(total) ///
            title(Kontext) ///
-           legend(order(1 "Bachelorstudium" 2 "Masterstudium" 3 "Promotionsstudium" 4 "Selbststudium" 5 "Anderes")) ///
+           legend(order(1 "Bachelorstudium" 2 "Masterstudium" 3 "Promotionsstudium" 4 "Selbststudium" 5 "Sonstiges")) ///
            name(gskontext, replace)
 graph export gskontext.pdf, replace
+
+gen whkontexterlernt1neu = .
+   replace whkontexterlernt1neu = 1 if whkontexterlernt1 == "Y"
+
+gen whkontexterlernt2neu = .
+   replace whkontexterlernt2neu = 1 if whkontexterlernt2 == "Y"
+
+gen whkontexterlernt3neu = .
+   replace whkontexterlernt3neu = 1 if whkontexterlernt3 == "Y"
+
+gen whkontexterlernt4neu = .
+   replace whkontexterlernt4neu = 1 if whkontexterlernt4 == "Y"
+
+gen whkontexterlerntotherneu = .
+   replace whkontexterlerntotherneu = 1 if whkontexterlerntother == "Y"
+
+gen kontext2 = .
+   replace kontext2 = 1 if whkontexterlernt1neu == 1
+   replace kontext2 = 2 if whkontexterlernt2neu == 1
+   replace kontext2 = 3 if whkontexterlernt3neu == 1
+   replace kontext2 = 4 if whkontexterlernt4neu == 1
+   replace kontext2 = 5 if whkontexterlerntotherneu == 1
+
+preserve
+   reshape long kontext, i(id) j(bereich)
+
+   mlogit kontext i.bereich, cluster(id)
+restore
 
 
 ********************************************************************************
