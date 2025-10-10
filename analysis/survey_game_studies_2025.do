@@ -375,8 +375,49 @@ label define bereich_lb ///
    18 "Gesundheitswissenschaften"
    label values bereich bereich_lb
 
+gen bereich_alpha = .
+   replace bereich_alpha =  1 if bereich == 12
+   replace bereich_alpha =  2 if bereich == 10
+   replace bereich_alpha =  3 if bereich == 11
+   replace bereich_alpha =  4 if bereich ==  2
+   replace bereich_alpha =  5 if bereich == 18
+   replace bereich_alpha =  6 if bereich == 17
+   replace bereich_alpha =  7 if bereich ==  4
+   replace bereich_alpha =  8 if bereich ==  9
+   replace bereich_alpha =  9 if bereich == 15
+   replace bereich_alpha = 10 if bereich ==  6
+   replace bereich_alpha = 11 if bereich ==  1
+   replace bereich_alpha = 12 if bereich == 13
+   replace bereich_alpha = 13 if bereich ==  8
+   replace bereich_alpha = 14 if bereich == 14
+   replace bereich_alpha = 15 if bereich ==  3
+   replace bereich_alpha = 16 if bereich ==  5
+   replace bereich_alpha = 17 if bereich == 16
+   replace bereich_alpha = 18 if bereich ==  7
+
+label define bereich_alpha_lb ///
+    1 "Architektur" ///
+    2 "Digital Humanities" ///
+    3 "Erziehungswissenschaften" ///
+    4 "Geschichte, Archäologie" ///
+    5 "Gesundheitswissenschaften" ///
+    6 "Informatik" ///
+    7 "Kulturwissenschaften" ///
+    8 "Kunstwissenschaften" ///
+    9 "Mathematik" ///
+   10 "Medien- und Kommunikationswiss." ///
+   11 "Philosophie, Ethik, Religion" ///
+   12 "Politikwissenschaften" ///
+   13 "Psychologie" ///
+   14 "Sonst. Religion, Religionswiss." ///
+   15 "Soziologie" ///
+   16 "Sprach- und Literaturwiss." ///
+   17 "Theologie" ///
+   18 "Wirtschaftswissenschaften"
+   label values bereich_alpha bereich_alpha_lb
+
 preserve
-   reshape long station, i(bereich) j(stationneu)
+   reshape long station, i(bereich_alpha) j(stationneu)
 
    label define stationneu_lb ///
       1 "Zur Zeit im Studium" ///
@@ -388,7 +429,7 @@ preserve
 
    graph bar (sum) station, asyvars ///
       over(stationneu) ///
-      over(bereich, label(angle(45))) ///
+      over(bereich_alpha, label(angle(45))) ///
       bargap(10) ///
       ytitle("Anzahl") ///
       title(Studienbereiche) ///
