@@ -11,6 +11,8 @@
    \renewcommand{\Authand}{\\}
    \renewcommand{\Authands}{\\}
 \usepackage[ngerman]{babel}
+\usepackage[natbib,notes,backend=bibtex]{biblatex-chicago}
+   \bibliography{references}
 \usepackage[german=guillemets]{csquotes}
 \usepackage{dcolumn}
    \newcolumntype{d}[1]{D{.}{.}{#1}}
@@ -23,10 +25,7 @@
    \graphicspath{{figures/}}
 \usepackage[hidelinks]{hyperref}
    \urlstyle{rm}
-\usepackage[authoryear]{natbib}
 \usepackage{url}
-
-\setcitestyle{aysep={}}
 
 \deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
    \setlength{\skip\footins}{1.5em}
@@ -39,7 +38,7 @@
 \author[2]{Lukas Daniel Klausner}
 \author[3]{Tobias Unterhuber}
 
-\affil[1]{ Universität Oldenburg, Institut für Philosophie}
+\affil[1]{ Carl von Ossietzky Universität Oldenburg, Institut für Philosophie}
 \affil[2]{ Fachhochschule St. Pölten, Institut für IT Sicherheitsforschung}
 \affil[3]{ Universität Innsbruck, Institut für Germanistik}
 
@@ -48,11 +47,21 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
 
 \begin{center}
-   \small\textbf{\textsf{Veröffentlicht in:}}\\
-   Lorem ipsum dolor sit amet
+   \textbf{\textsf{in Vorbereitung für:}}\\
+   \textit{Geisteswissenschaften und Digitale Spiele. Debatten, Data \& Desiderata}
 \end{center}
+
+\vfill
+\noindent\textbf{\textsf{Abstract:}}
+Der Beitrag untersucht Methodenvielfalt und disziplinäre Verortung der Game Studies im deutschsprachigen Raum.
+Ausgangspunkt ist eine Online-Umfrage unter Forschenden ($n = 100$), ergänzt um theoretische Überlegungen zur Frage, wie sich das Feld zwischen Disziplinarität und Interdisziplinarität positioniert.
+Um die doppelte Verortung der Game Studies zwischen Ursprungsdisziplin und Forschungsfeld zu beschreiben, schlagen wir den Begriff der disziplinären Affordanz vor.
+Die Umfrageergebnisse liefern Daten zur Geschlechter-, Alters- und Fächerverteilung in den deutschsprachigen Game Studies.
+Darüber hinaus zeigen sie, dass die Methoden- und Theoriewahl in den Game Studies stark von den jeweiligen Ursprungsdisziplinen der Forschenden geprägt sind.
+Ausgehend von diesen Ergebnissen werden Problemfelder und Handlungsempfehlungen vorgeschlagen.
 
 
 %%%%%%%%%%%%%%
@@ -60,6 +69,20 @@
 %%%%%%%%%%%%%%
 \newpage
 \section{Einleitung}\label{sec:einleitung}
+Es gibt kaum ein Forschungsfeld, das so interdisziplinär ist wie die Game Studies.
+Okay, das ist zweifelsohne in dieser starken Formulierung Unfug, aber die Beforschung Digitaler Spiele ist tatsächlich einer der hochgradig interdisziplinären Wissenschaftszweige im akademischen Betrieb.
+Was die Game Studies vielleicht tatsächlich auszeichnet, ist, dass sich bislang (mutmaßlich auch wegen ihrer relativen Jugend)\autocite[Vgl.][]{unterhuber_magic_2022} noch kein wirklicher Methoden- oder Theoriekanon herausgebildet zu haben scheint.
+Vor diesem Hintergrund wollen wir das Jubiläum des Arbeitskreises zum Anlass nehmen, uns ausführlich und datenbasiert mit den gängigen Methoden und der disziplinären Verortung der Game-Studies-Forscher:innen im deutschen Sprachraum zu befassen.
+Im Folgenden werfen wir hierzu zunächst einen Blick auf den theoretischen Hintergrund (Abschnitt \ref{sec:hintergrund}), ehe wir die von uns durchgeführte Umfrage vorstellen (Abschnitt 3) und einen eingehenden Blick auf ihre Ergebnisse werfen (Abschnitt 4).
+Zum Abschluss versuchen wir, unsere Erkenntnisse noch einmal gesammelt zu interpretieren und in einen breiteren Kontext zu stellen (Abschnitt 5).
 
+
+%%%%%%%%%%%%%%%
+% HINTERGRUND %
+%%%%%%%%%%%%%%%
+\section{Theoretischer Hintergrund}\label{sec:hintergrund}
+Zunächst aber steht die Frage im Raum, als was die Game Studies am besten zu verstehen sind:
+Sind sie eine Disziplin oder doch eher ein Feld?\footnote{Foucault beispielsweise versteht unter Disziplinen \enquote{Gesamtheiten von Aussagen [$\ldots$], die ihre Organisation wissenschaftlichen Modellen entleihen, zur Kohärenz und zur Beweisfähigkeit neigen, wie Wissenschaften angenommen, institutionalisiert, übermittelt und manchmal gelehrt werden} (\autocite[][S.~253--254]{foucault_archaologie_2011}). Forschungsfelder hingegen fungieren begrifflich vor allem als Gegenstandsbereich ohne Notwendigkeit einer institutionellen Grundlage.}
+Wie an anderer Stelle bereits angemerkt, scheint es den Game Studies (oder der Spielwissenschaft oder der Spielforschung) im deutschsprachigen Raum an Institutionalisierung und somit an stabilisierender Verankerung zu fehlen, so dass \enquote{sich von den Game Studies am besten als Feld sprechen} lässt.
 
 \end{document}
