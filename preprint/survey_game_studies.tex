@@ -5,6 +5,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{array}
 \usepackage{authblk}
    \renewcommand\Affilfont{\small}
    \renewcommand{\Authsep}{\\}
@@ -13,6 +14,8 @@
 \usepackage[ngerman]{babel}
 \usepackage[natbib,notes,backend=bibtex]{biblatex-chicago}
    \bibliography{references}
+\usepackage{booktabs}
+\usepackage{caption}
 \usepackage[german=guillemets]{csquotes}
 \usepackage{dcolumn}
    \newcolumntype{d}[1]{D{.}{.}{#1}}
@@ -25,7 +28,12 @@
    \graphicspath{{figures/}}
 \usepackage[hidelinks]{hyperref}
    \urlstyle{rm}
+\usepackage{longtable}
+\usepackage{pdflscape}
 \usepackage{url}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
    \setlength{\skip\footins}{1.5em}
@@ -56,10 +64,11 @@
 
 \vfill
 \noindent\textbf{\textsf{Abstract:}}
-Der Beitrag untersucht Methodenvielfalt und disziplinäre Verortung der Game Studies im deutschsprachigen Raum.
+Die Game Studies sind als junges und inhärent interdisziplinäres Feld auch selbst ein hochgradig interessanter Forschungsgegenstand.
+Vor diesem Hintergrund untersucht unser Beitrag Methodenvielfalt und disziplinäre Verortung der Game Studies im deutschsprachigen Raum.
 Ausgangspunkt ist eine Online-Umfrage unter Forschenden ($n = 100$), ergänzt um theoretische Überlegungen zur Frage, wie sich das Feld zwischen Disziplinarität und Interdisziplinarität positioniert.
 Um die doppelte Verortung der Game Studies zwischen Ursprungsdisziplin und Forschungsfeld zu beschreiben, schlagen wir den Begriff der disziplinären Affordanz vor.
-Die Umfrageergebnisse liefern Daten zur Geschlechter-, Alters- und Fächerverteilung in den deutschsprachigen Game Studies.
+Unsere Umfrageergebnisse liefern Daten zur Geschlechter-, Alters- und Fächerverteilung in den deutschsprachigen Game Studies.
 Darüber hinaus zeigen sie, dass die Methoden- und Theoriewahl in den Game Studies stark von den jeweiligen Ursprungsdisziplinen der Forschenden geprägt sind.
 Ausgehend von diesen Ergebnissen werden Problemfelder und Handlungsempfehlungen vorgeschlagen.
 
@@ -84,5 +93,405 @@ Zum Abschluss versuchen wir, unsere Erkenntnisse noch einmal gesammelt zu interp
 Zunächst aber steht die Frage im Raum, als was die Game Studies am besten zu verstehen sind:
 Sind sie eine Disziplin oder doch eher ein Feld?\footnote{Foucault beispielsweise versteht unter Disziplinen \enquote{Gesamtheiten von Aussagen [$\ldots$], die ihre Organisation wissenschaftlichen Modellen entleihen, zur Kohärenz und zur Beweisfähigkeit neigen, wie Wissenschaften angenommen, institutionalisiert, übermittelt und manchmal gelehrt werden} (\autocite[][S.~253--254]{foucault_archaologie_2011}). Forschungsfelder hingegen fungieren begrifflich vor allem als Gegenstandsbereich ohne Notwendigkeit einer institutionellen Grundlage.}
 Wie an anderer Stelle bereits angemerkt, scheint es den Game Studies (oder der Spielwissenschaft oder der Spielforschung) im deutschsprachigen Raum an Institutionalisierung und somit an stabilisierender Verankerung zu fehlen, so dass \enquote{sich von den Game Studies am besten als Feld sprechen} lässt.
+
+
+%%%%%%%%%
+% DATEN %
+%%%%%%%%%
+\clearpage
+\section*{Daten}
+Da sie unter Umständen eine persönliche Identifikation ermöglichen, verzichten wir aus Datenschutzgründen darauf, die qualitativen Daten unserer Umfrage öffentlich zugänglich zu machen.
+Die quantitativen Daten stellen wir -- ebenso wie die Umfragestruktur (zur Verwendung mit LimeSurvey) und das Analyseskript (zur Verwendung mit Stata) -- unter \url{https://github.com/alephmembeth/survey-game-studies-2025} zu Verfügung.
+
+
+%%%%%%%%
+% DANK %
+%%%%%%%%
+\section*{Danksagung}
+Wir möchten uns an dieser Stelle vornehmlich bei allen einhundert Teilnehmer:innen unserer Umfrage bedanken -- ohne Sie und euch hätten wir diesen Text nicht schreiben können.
+Danke für Ihre und eure Zeit!
+Weiters danken wir Mark Siebel und Tobias Winnerling für ihre kritische Durchsicht des Textes.
+Mark Siebel danken wir darüber hinaus für seine finanzielle Unterstützung zur Incentivierung der Umfrage.
+(Dank seiner großzügigen Spende konnten wir unter den Umfrageteilnehmer:innen drei Steam-Gutscheine verlosen.)
+
+
+%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIE %
+%%%%%%%%%%%%%%%%
+\printbibliography
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE %
+%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section*{Appendix A: Umfrage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE – EINLEITUNG %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Einleitung}
+Herzlich willkommen zu unserer Umfrage zu Methoden und Praktiken zu den Game Studies im deutschsprachigen Raum (unabhängig von der Publikationssprache)!
+
+Im Folgenden stellen wir Ihnen einige Fragen zu Ihrem akademischen Werdegang und Ihrer Forschung in den Game Studies.
+Die Umfrage gliedert sich dabei in folgende Gruppen:
+
+\begin{itemize}
+   \item[(1)] Ihr wissenschaftlicher Hintergrund und Ihre Forschung außerhalb der Game Studies.
+   \item[(2)] Ihre Forschung innerhalb der Game Studies.
+   \item[(3)] Ihre Einschätzung der von Ihnen verwendeten Methoden innerhalb der Game Studies.
+   \item[(4)] Abschließende Fragen.
+\end{itemize}
+
+\noindent Der einfacheren Lesbarkeit halber verwenden wir im Folgenden nur den Begriff \enquote{Game Studies}, verstehen ihn aber bewusst als breit gedacht, inklusiv und umfassend; wir meinen damit jegliche Forschung, die sich mit (digitalen) Spielen auseinandersetzt.
+Falls es für Ihre Forschung passender ist, lesen Sie ihn gerne als \enquote{Spielwissenschaft}, \enquote{Spielforschung} oder Ähnliches.
+
+Mit Ihren Antworten helfen Sie uns dabei, unser gemeinsames Feld besser zu verstehen.
+Bitte lesen Sie sich die Fragen sorgfältig durch und antworten Sie nach bestem Wissen.
+Bei konzentrierter Bearbeitung wird das Ausfüllen der Umfrage etwa zehn bis fünfzehn Minuten in Anspruch nehmen.
+Wenn Sie möchten, haben Sie am Ende der Umfrage die Möglichkeit, an einer Verlosung von drei Steam-Gutscheinen im Wert von jeweils $50$ Euro teilzunehmen.
+Alle Antworten werden anonymisiert gespeichert, so dass keine Zuordnung zu Ihrer Person möglich ist, sofern Sie am Ende der Umfrage nicht explizit zustimmen, ggf. für ein vertiefendes Interview zur Verfügung zu stehen.
+
+Wenn Sie an der Umfrage teilnehmen möchten, lesen Sie sich bitte die folgenden Informationen zum Datenschutz durch und akzeptieren Sie anschließend unsere Datenschutzerklärung.
+
+Wenden Sie sich bei Fragen gerne per E-Mail an die nachstehenden Adressen.
+
+Vielen Dank für Ihre Zeit und die wertvollen Einblicke, die Sie uns durch Ihre Antworten gewähren!
+
+\vspace{1em}
+\noindent Dr. Alexander Max Bauer, Carl von Ossietzky Universität Oldenburg\\
+(alexander.max.bauer@uol.de)
+
+\vspace{1em}
+\noindent Dr. Lukas Daniel Klausner, Fachhochschule St. Pölten\\
+(lukas.daniel.klausner@fhstp.ac.at)
+
+\vspace{1em}
+\noindent Dr. Tobias Unterhuber, Universität Innsbruck\\
+(tobias.unterhuber@uibk.ac.at)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE – HINTERGRUND %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Wissenschaftlicher Hintergrund und Fachsozialisation}
+Auf dieser Seite stellen wir Ihnen Fragen zu Ihrem wissenschaftlichen Hintergrund und Ihrer Forschung \textbf{außerhalb} der Game Studies.
+
+\begin{itemize}
+   \item[--] Sind Sie Mitglied im AKGWDS? Bitte antworten Sie \enquote{Ja}, wenn Sie in dem seit zehn Jahren bestehenden Arbeitskreis und/oder dem eingetragenen Verein Mitglied sind. \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Nein
+      \item[$\square$] Ja
+   \end{itemize}
+   \item[--] Welche akademischen Abschlüsse haben Sie bisher erworben? Bitte geben Sie die Disziplin(en), das Land der Hochschule sowie das Abschlussjahr an. \textcolor{gray}{\textsf{[Freitext]}}
+\end{itemize}
+
+\begin{table}[h]
+   \centering
+   \begin{tabular}{lccc}
+      \hline
+                                     & \textbf{Disziplin(en)}   & \textbf{Land}   & \textbf{Abschlussjahr}   \\
+      \hline\hline
+      Zur Zeit im Studium            &                          &                 &                          \\
+      Bachelor (oder vergleichbar)   &                          &                 &                          \\
+      Master (oder vergleichbar)     &                          &                 &                          \\
+      Promotion                      &                          &                 &                          \\
+      Habilitation                   &                          &                 &                          \\
+      Sonstiges                      &                          &                 &                          \\
+      \hline
+   \end{tabular}
+\end{table}
+
+\begin{itemize}
+   \item[--] Welche methodischen Ansätze haben Sie im Rahmen Ihrer akademischen Abschlüsse vor allem erlernt? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Welche Disziplinen haben Sie \textbf{neben} Ihren akademischen Abschlüssen geprägt (z.\,B. durch nicht zu Ende geführte Studienfächer, Forschungsprojekte, persönliche Interessen, Kooperationen usw.)? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Welche methodischen Ansätze haben Sie \textbf{außerhalb} Ihrer akademischen Abschlüsse erlernt? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Welche methodischen Ansätze verwenden Sie in Ihrer Forschung \textbf{außerhalb} der Game Studies? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] In welchem Kontext haben Sie die methodischen Ansätze, die Sie in Ihrer Forschung \textbf{außerhalb} der Game Studies verwenden, erlernt? \textcolor{gray}{\textsf{[Mehrfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Im Rahmen des Bachelorstudiums (oder eines vergleichbaren Studiums)
+      \item[$\square$] Im Rahmen des Masterstudiums (oder eines vergleichbaren Studiums)
+      \item[$\square$] Im Rahmen des Promotionsstudiums
+      \item[$\square$] Durch Selbststudium
+      \item[$\square$] Sonstiges:\ \rule{2cm}{0.4pt}
+   \end{itemize}
+   \item[--] In welcher akademischen Rolle befinden Sie sich derzeit? \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Student:in
+      \item[$\square$] Promovierende:r
+      \item[$\square$] Lehrbeauftragte:r/Dozent:in
+      \item[$\square$] Wissenschaftliche:r Mitarbeiter:in
+      \item[$\square$] Juniorprofessor:in
+      \item[$\square$] Professor:in
+      \item[$\square$] Externe:r Forscher:in (außerhalb von Hochschulen oder anderen Forschungseinrichtungen)
+      \item[$\square$] Sonstiges:\ \rule{2cm}{0.4pt}
+   \end{itemize}
+   \item[--] Sind Sie aktuell oder waren Sie innerhalb der letzten zwölf Monate in einem wissenschaftlichen Kontext angestellt? \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Nein
+      \item[$\square$] Ja
+   \end{itemize}
+   \item[] \textcolor{gray}{\textsf{[Falls Ja:]}}
+   \begin{itemize}
+      \item[--] Geben Sie bitte an, wie sich Ihre Aufgaben ungefähr prozentual auf folgende Bereiche aufteilen (bzw. zuletzt aufteilten). (Insgesamt sollen die Angaben unter (1), (2) und (3) aufsummiert $100\,\%$ ergeben.) \textcolor{gray}{\textsf{[Numerische Eingabe]}}
+      \begin{itemize}
+         \item[(1)] Forschung:\ \rule{2cm}{0.4pt}\,$\%$
+         \item[(2)] Lehre:\ \rule{2cm}{0.4pt}\,$\%$
+         \item[(3)] Administratives, Organisatorisches und Sonstiges:\ \rule{2cm}{0.4pt}\,$\%$
+      \end{itemize}
+      \item[--] Sind Sie derzeit befristet oder unbefristet angestellt? \textcolor{gray}{\textsf{[Einfachauswahl]}}
+      \begin{itemize}
+         \item[$\square$] Befristet
+         \item[$\square$] Unbefristet
+         \item[$\square$] Unbefristet mit Sonderkündigungsschutz (z.\,B. durch Verbeamtung, ordentliche Professur o.\,Ä.)
+      \end{itemize}
+   \end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE – GAME STUDIES %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Forschung in den Game Studies}
+Auf dieser Seite stellen wir Ihnen Fragen zu Ihrer Forschung in den Game Studies.
+
+\begin{itemize}
+   \item[--] Seit wie vielen Jahren bzw. seit wann beschäftigen Sie sich mit Game Studies? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Hat sich Ihre Beschäftigung mit Game Studies über den Verlauf Ihrer akademischen Laufbahn verändert? Wenn ja, wie? Wenn nein, inwiefern ist sie \enquote{konstant} geblieben? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] In welchem Kontext haben Sie sich zuerst mit Game Studies zu beschäftigen begonnen? Was waren die Beweggründe dafür? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Welche methodischen Ansätze verwenden Sie derzeit in Ihrer Forschung in den Game Studies? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Aus welchen Disziplinen stammen diese methodischen Ansätze? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] In welchem Kontext haben Sie diese methodischen Ansätze erlernt? \textcolor{gray}{\textsf{[Mehrfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Im Rahmen des Bachelorstudiums (oder eines vergleichbaren Studiums)
+      \item[$\square$] Im Rahmen des Masterstudiums (oder eines vergleichbaren Studiums)
+      \item[$\square$] Im Rahmen des Promotionsstudiums
+      \item[$\square$] Durch Selbststudium
+      \item[$\square$] Sonstiges:\ \rule{2cm}{0.4pt}
+   \end{itemize}
+   \item[--] Warum verwenden Sie diese methodischen Ansätze in Ihrer Forschung in den Game Studies? Gab es äußere Einflüsse? Erfolgte die Methodenwahl (auch oder primär) aus anderen, intrinsischen Erwägungen? Aus welchen? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Welchen methodischen Ansatz verwenden Sie am häufigsten in Ihrer Forschung in den Game Studies? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] In welcher Sprache oder welchen Sprachen schreiben Sie Ihre Forschung in den Game Studies primär? \textcolor{gray}{\textsf{[Freitext]}}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE – SELBSTEINSCHÄTZUNG %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Selbsteinschätzung}
+Auf dieser Seite stellen wir Ihnen Fragen zu Ihrer Einschätzung der von Ihnen in den Game Studies verwendeten Methoden.
+
+\begin{itemize}
+   \item[--] Wie schätzen Sie Ihr eigenes methodisches Vorgehen in den Game Studies ein? \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Sehr unorthodox bzw. experimentell
+      \item[$\square$] Eher unorthodox bzw. experimentell
+      \item[$\square$] Eher traditionell bzw. disziplinär verankert
+      \item[$\square$] Sehr traditionell bzw. disziplinär verankert
+   \end{itemize}
+   \item[--] Wie gut sind Sie mit dem von Ihnen am häufigsten verwendeten methodischen Ansatz, den Sie derzeit in Ihrer Forschung in den Game Studies verwenden, vertraut? \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Sehr unvertraut
+      \item[$\square$] Eher unvertraut
+      \item[$\square$] Eher vertraut
+      \item[$\square$] Sehr vertraut
+   \end{itemize}
+   \item[--] Wie etabliert oder aktuell schätzen Sie den von Ihnen am häufigsten verwendeten methodischen Ansatz, den Sie derzeit in Ihrer Forschung in den Game Studies verwenden, innerhalb des disziplinären Kontexts ein, in dem Sie ihn ursprünglich erlernt oder kennengelernt haben? \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Überhaupt nicht etabliert, wird in der Disziplin gerade erst diskutiert
+      \item[$\square$] Kaum etabliert, wird in der Disziplin in letzter Zeit ausdefiniert/standardisiert
+      \item[$\square$] Etabliert, wird in der Disziplin weitestgehend als bekannt vorausgesetzt
+      \item[$\square$] Quasi Standard, wird in der Disziplin oft schon im Grundstudium gelehrt
+   \end{itemize}
+   \item[--] Wie gebräuchlich schätzen Sie den von Ihnen am häufigsten verwendeten methodischen Ansatz, den Sie derzeit in Ihrer Forschung in den Game Studies verwenden, innerhalb des disziplinären Kontexts ein, in dem Sie ihn ursprünglich erlernt oder kennengelernt haben? \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Sehr ungewöhnlich, wird in der Disziplin kaum genutzt
+      \item[$\square$] Eher ausgefallen, wird in der Disziplin gelegentlich genutzt
+      \item[$\square$] Gängige Methode, wird in der Disziplin regelmäßig genutzt
+      \item[$\square$] Methodischer Standard, wird in der Disziplin sehr häufig genutzt
+   \end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE – SOZIODEMOGRAPHIE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Soziodemographie}
+Auf dieser Seite stellen wir Ihnen Fragen zu Alter und Geschlecht.
+
+\begin{itemize}
+   \item[--] Bitte geben Sie an, in welcher Altersgruppe Sie sich befinden. \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] $15-24$
+      \item[$\square$] $25-34$
+      \item[$\square$] $35-44$
+      \item[$\square$] $45-54$
+      \item[$\square$] $55-64$
+      \item[$\square$] $65-74$
+      \item[$\square$] $\geq75$
+   \end{itemize}
+   \item[--] Bitte geben Sie Ihr Geschlecht an. \textcolor{gray}{\textsf{[Freitext]}}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE – ABSCHLIESSENDE FRAGEN %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Abschließende Fragen}
+Auf dieser Seite stellen wir Ihnen zwei abschließende Fragen.
+Klicken Sie zum Abschließen der Umfrage bitte unten auf \enquote{Absenden}.
+Auf der nächsten Seite finden Sie Informationen zur Teilnahme an der Gutscheinverlosung.
+
+\begin{itemize}
+   \item[--] Gibt es noch irgendetwas zum Thema Game Studies, Interdisziplinarität und Methodenwahl, das Sie uns aus Ihrer Erfahrung erzählen möchten? \textcolor{gray}{\textsf{[Freitext]}}
+   \item[--] Wären Sie bereit, für ein vertiefendes Interview auf Basis dieser Umfrage zur Verfügung zu stehen? Falls ja, hinterlassen Sie uns bitte Ihre E-Mail-Adresse. Bitte beachten Sie, dass in diesem Fall für einen kurzen Zeitraum eine Zuordnung Ihrer E-Mail-Adresse zu Ihren gegebenen Antworten möglich ist. Wir verwenden Ihre E-Mail-Adresse ausschließlich zur Kontaktaufnahme; Angaben in Umfrage und Interview werden nur in anonymisierter Form verwendet. \textcolor{gray}{\textsf{[Einfachauswahl]}}
+   \begin{itemize}
+      \item[$\square$] Nein
+      \item[$\square$] Ja
+   \end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – UMFRAGE – ABSCHLUSS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Abschluss}
+Vielen Dank für Ihre Teilnahme.
+
+Wenn Sie an der Gutschein-Verlosung teilnehmen möchten, klicken Sie bitte auf diesen Link und geben Sie dort Ihre E-Mail-Adresse an.
+
+Schreiben Sie uns gerne eine E-Mail, falls Sie Fragen haben oder über die Ergebnisse der Umfrage informiert werden möchten, sobald sie veröffentlicht sind.
+
+\vspace{1em}
+\noindent Dr. Alexander Max Bauer, Carl von Ossietzky Universität Oldenburg\\
+(alexander.max.bauer@uol.de)
+
+\vspace{1em}
+\noindent Dr. Lukas Daniel Klausner, Fachhochschule St. Pölten\\
+(lukas.daniel.klausner@fhstp.ac.at)
+
+\vspace{1em}
+\noindent Dr. Tobias Unterhuber, Universität Innsbruck\\
+(tobias.unterhuber@uibk.ac.at)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – TABELLEN %
+%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{landscape}
+\section*{Appendix B: Zusätzliche Tabellen}
+
+   \begin{longtable}{L{7.5cm}ccccc}
+      \caption{Aufstellung der Studienfächer}\label{tab:studienfaecher}                                                                                                             \\
+      \hline
+      \textbf{Studiengang}                           & \textbf{Zur Zeit}     & \textbf{Bachelor}        & \textbf{Master}          & \textbf{Promotion}   & \textbf{Habilitation}   \\
+                                                     & \textbf{Im Studium}   & \textbf{(oder Vergl.)}   & \textbf{(oder Vergl.)}   &                      &                         \\
+      \hline\hline
+      \endfirsthead
+      \hline
+      \textbf{Studiengang}                           & \textbf{Im Studium}   & \textbf{Bachelor}        & \textbf{Master}          & \textbf{Promotion}   & \textbf{Habilitation}   \\
+                                                     & \textbf{Im Studium}   & \textbf{(oder Vergl.)}   & \textbf{(oder Vergl.)}   &                      &                         \\
+      \hline\hline
+      \endhead
+      \hline
+      \multicolumn{6}{r}{\small Fortsetzung auf der nächsten Seite}                                                                                                                 \\
+      \endfoot
+      \hline
+      \endlastfoot
+Ägyptologie                                          & 1                     &  1                       &  1                       & 0                    & 0                       \\
+Allgemeine und vergleichende Literaturwissenschaft   & 0                     &  0                       &  2                       & 1                    & 0                       \\
+Amerikanistik/Anglistik                              & 0                     &  4                       &  0                       & 3                    & 0                       \\
+Arabistik                                            & 0                     &  0                       &  0                       & 1                    & 0                       \\
+Arbeitsgestaltung und HR-Management                  & 0                     &  1                       &  0                       & 0                    & 0                       \\
+Archäologie                                          & 0                     &  1                       &  0                       & 1                    & 0                       \\
+Architektur                                          & 0                     &  1                       &  1                       & 0                    & 0                       \\
+Bibliotheksmanagement                                & 0                     &  1                       &  0                       & 0                    & 0                       \\
+Bildungswissenschaft                                 & 3                     &  3                       &  2                       & 0                    & 0                       \\
+Buchwissenschaft                                     & 0                     &  1                       &  0                       & 0                    & 0                       \\
+Design/Design Research                               & 0                     &  2                       &  1                       & 0                    & 0                       \\
+Digital Humanities                                   & 3                     &  1                       &  1                       & 1                    & 0                       \\
+Dramaturgie                                          & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Englische Literaturwissenschaft                      & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Englische Philologie                                 & 0                     &  0                       &  0                       & 0                    & 2                       \\
+Ethnologie/Europäische Ethnologie                    & 0                     &  2                       &  1                       & 1                    & 0                       \\
+Filmwissenschaft/Film- und Medienkulturforschung     & 0                     &  0                       &  1                       & 1                    & 0                       \\
+Game Development and Research                        & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Game Studies                                         & 1                     &  0                       &  3                       & 0                    & 0                       \\
+Germanistik                                          & 0                     & 10                       & 10                       & 9                    & 0                       \\
+Geschichte                                           & 6                     & 14                       & 16                       & 4                    & 1                       \\
+Gesellschaftswissenschaft                            & 0                     &  0                       &  0                       & 1                    & 0                       \\
+Informatik/Angewandte Informatik                     & 0                     &  1                       &  0                       & 1                    & 0                       \\
+Informationswissenschaft                             & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Japanologie                                          & 1                     &  2                       &  0                       & 1                    & 0                       \\
+Kommunikationswissenschaft                           & 0                     &  1                       &  1                       & 1                    & 0                       \\
+Kulturanthropologie/Empirische Kulturwissenschaft    & 0                     &  0                       &  0                       & 0                    & 1                       \\
+Kulturpoetik der Literatur und Medien                & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Kultur- und Sozialanthropologie                      & 0                     &  1                       &  0                       & 0                    & 0                       \\
+Kulturwissenschaft                                   & 1                     &  4                       &  2                       & 1                    & 0                       \\
+Kunstgeschichte                                      & 0                     &  3                       &  2                       & 2                    & 0                       \\
+Künstliche Intelligenz                               & 0                     &  0                       &  0                       & 1                    & 0                       \\
+Kunstwissenschaft                                    & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Lehramt                                              & 4                     &  0                       &  0                       & 0                    & 0                       \\
+Lehramt (Deutsch, Geographie, Politik)               & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Lehramt (Englisch, Deutsch)                          & 0                     &  2                       &  2                       & 0                    & 0                       \\
+Lehramt (Geschichte/Politische Bildung, Latein)      & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Lehramt (Mathematik, Evangelische Religion)          & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Linguistik                                           & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Literatur-, Sprach-, und Kulturwissenschaft          & 0                     &  1                       &  0                       & 0                    & 0                       \\
+Literatur- und Kulturwissenschaft                    & 0                     &  0                       &  0                       & 1                    & 0                       \\
+Literatur und Medien                                 & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Literatur- und Sprachwissenschaft                    & 4                     &  0                       &  0                       & 0                    & 0                       \\
+Literaturwissenschaft                                & 0                     &  2                       &  0                       & 0                    & 0                       \\
+Management/Wirtschaft                                & 0                     &  0                       &  0                       & 2                    & 0                       \\
+Mathematik                                           & 0                     &  2                       &  1                       & 1                    & 0                       \\
+Medien                                               & 0                     &  0                       &  2                       & 0                    & 0                       \\
+Medienkultur                                         & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Medienkulturwissenschaft                             & 0                     &  0                       &  3                       & 0                    & 0                       \\
+Medien und kulturelle Praxis                         & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Medienwissenschaft                                   & 2                     &  9                       &  3                       & 8                    & 0                       \\
+Medizingeschichte                                    & 0                     &  0                       &  0                       & 1                    & 0                       \\
+Musikwissenschaft/World Arts and Music               & 0                     &  4                       &  2                       & 1                    & 0                       \\
+Pädagogik                                            & 0                     &  3                       &  0                       & 0                    & 0                       \\
+Philosophie                                          & 2                     &  2                       &  2                       & 1                    & 1                       \\
+Politik-Wirtschaft                                   & 0                     &  1                       &  0                       & 0                    & 0                       \\
+Politikwissenschaft                                  & 1                     &  0                       &  1                       & 0                    & 0                       \\
+Psychologie/Klinische Psychologie                    & 2                     &  3                       &  1                       & 0                    & 0                       \\
+Religionswissenschaft                                & 1                     &  1                       &  4                       & 3                    & 0                       \\
+Skandinavistik                                       & 0                     &  1                       &  0                       & 0                    & 0                       \\
+Soziologie                                           & 0                     &  2                       &  0                       & 0                    & 0                       \\
+Theaterwissenschaft                                  & 0                     &  0                       &  0                       & 1                    & 0                       \\
+Theologie/Ökumene und Religionen                     & 0                     &  2                       &  5                       & 1                    & 1                       \\
+Translationswissenschaft                             & 0                     &  0                       &  1                       & 0                    & 0                       \\
+Wirtschaftswissenschaft                              & 1                     &  0                       &  1                       & 0                    & 0                       \\
+\end{longtable}
+\noindent\textit{Folgende Zeilen sind Zusammenfassungen jeweils genannter Einträge:
+\enquote{Design/Design Research}, \enquote{Ethnologie/Europäische Ethnologie}, \enquote{Filmwissenschaft/Film- und Medienkulturforschung}, \enquote{Informatik/Angewandte Informatik}, \enquote{Management/Wirtschaft}, \enquote{Musikwissenschaft/World Arts and Music}, \enquote{Psychologie/Klinische Psychologie}, \enquote{Theologie/Ökumene und Religionen}.}
+\end{landscape}
+
+
+%%%%%%%%%%%
+% AUTOREN %
+%%%%%%%%%%%
+\clearpage
+\section*{Autorenbiographien}
+\textbf{\textsf{Alexander Max Bauer}} studierte Politik-Wirtschaft und Philosophie an der Carl von Ossietzky Universität Oldenburg, wo er 2017 den Master of Arts in Philosophie erwarb.
+Nach Abschluss des Studiums arbeitete er als Wissenschaftlicher Mitarbeiter an der Helmut-Schmidt-Universität der Bundeswehr in Hamburg bei Stefan Traub (Verhaltensökonomik) sowie an der Universität Oldenburg bei Mark Siebel (Theoretische Philosophie), wo er 2024 mit einer kumulativen Dissertation zu Fragen der Verteilungsgerechtigkeit promoviert wurde.
+Derzeit ist er Wissenschaftlicher Mitarbeiter an der Universität Oldenburg, wo er mit Methoden aus der empirischen Sozialforschung und experimentellen Ökonomie vorrangig im Bereich der Experimentellen Philosophie zu Fragen der Verteilungsgerechtigkeit sowie der Kausalität forscht.
+Daneben ist er im Bereich der Game Studies sowie der Digital Humanities aktiv.
+
+\vspace{1em}
+\noindent\textbf{\textsf{Lukas Daniel Klausner}} ist Informatiker, Mathematiker sowie Wissenschafts- und Technikforscher und arbeitet derzeit an der University of Applied Sciences St. Pölten sowie der Universität zu Lübeck.
+Nach seiner Sub-auspiciis-Promotion in Mathematik an der TU Wien in Logik und Mengenlehre begann er sich für die Wechselwirkungen zwischen Gesellschaft und Technologie zu interessieren.
+Heute forscht er interdisziplinär an der Schnittstelle zwischen Kritischer Informatik, Wissenschafts- und Technikforschung, Mensch-Computer-Interaktion und Game Studies dazu, wie verschiedene Communitys ihre digitalen Umgebungen erleben und gestalten und wie Gesellschaft und Technologie miteinander interagieren und sich gegenseitig beeinflussen.
+
+\vspace{1em}
+\noindent\textbf{\textsf{Tobias Unterhuber}} studierte Neuere deutsche Literatur, Allgemeine und Vergleichende Literaturwissenschaft sowie Religionswissenschaft in München und Berkeley.
+2018 promovierte er mit der Arbeit \enquote{Kritik der Oberfläche -- Das Totalitäre bei und im Sprechen über Christian Kracht}.
+Er ist Postdoc für Literatur und Medien an der Universität Innsbruck, wo er auch die Forschungsgruppe \enquote{Game Studies} leitet.
+Außerdem ist er Herausgeber der Zeitschrift \textit{PAIDIA -- Zeitschrift für Computerspielforschung} sowie der \textit{Zeitschrift für Fantastikforschung} und Mitglied im Leitungsgremium des Arbeitskreises Geisteswissenschaften und Digitale Spiele.
+Seine aktuellen Arbeitsschwerpunkte liegen in der Medien- und Geschlechtergeschichte des Spiels und in der Fachgeschichte der Game Studies.
+
 
 \end{document}
